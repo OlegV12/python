@@ -1,8 +1,13 @@
-sec = int(input("введите количество секунд: "))
+my_list = [1, 2, 3, 4, 5, 6, 7]
+list_1 = []
+print(my_list)
 
-sec_result = sec % 60
-minute = (sec // 60) % 60
-hour = (sec // 60) // 60
+for i in range(len(my_list)):
 
+    if i % 2 != 0:
+        list_1.insert(i - 1, my_list[i])
 
-print(f"{sec} секунд равно: {hour}:{minute}:{sec_result} в формате чч:мм:сс")
+    else:
+        list_1.append(my_list[i])
+
+print(list_1)
