@@ -1,6 +1,10 @@
 
-my_list = [1, 45, "name", 32.23, True, ]
+def div_func(a_1, a_2):
+    try:
+        res = a_1 / a_2
+        return res
+    except ZeroDivisionError:
+        print("на ноль делить нельзя")
 
-for ind, i in enumerate(my_list, 1):
-    print(ind, i, type(i))
 
+print(round(div_func(float(input("введите первое число: ")), float(input("введите втрое число: "))), 2))

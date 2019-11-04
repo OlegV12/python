@@ -1,13 +1,20 @@
-my_list = [1, 2, 3, 4, 5, 6, 7]
-list_1 = []
-print(my_list)
 
-for i in range(len(my_list)):
 
-    if i % 2 != 0:
-        list_1.insert(i - 1, my_list[i])
+def user_data(name, surname, b_year, city, email, ph_number):
 
-    else:
-        list_1.append(my_list[i])
+    print(f"User name: {name}, "
+          f"user surname: {surname}, "
+          f"user year of birth: {b_year}, "
+          f"user city: {city}, "
+          f"user email: {email}, "
+          f"user phone number: {ph_number}")
 
-print(list_1)
+
+u_name = input("input name: ")
+u_surname = input("input surname: ")
+u_b_year = input("input year of birth: ")
+u_city = input("input city: ")
+u_email = input("input email: ")
+u_ph_number = input("input phone number: ")
+
+user_data(name=u_name, surname=u_surname, b_year=u_b_year, city=u_city, email=u_email, ph_number=u_ph_number)

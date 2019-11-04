@@ -1,26 +1,14 @@
 
-winter = [1, 2, 12]
-spring = [3, 4, 5]
-summer = [6, 7, 8]
-autumn = [9, 10, 11]
 
-user_month = int(input("Введите месяц:"))
+def my_func(a_1, a_2, a_3):
+    f = [a_1, a_2, a_3]
+    try:
+        max_1 = max(f)
+        f.remove(max_1)
+        max_2 = max(f)
+        return max_1 + max_2
+    except TypeError:
+        print("неправильно задан аргумент")
 
-# реализация через list
 
-if user_month in winter:
-    print("Зима")
-elif user_month in spring:
-    print("Весна")
-elif user_month in summer:
-    print("Лето")
-elif user_month in autumn:
-    print("Осень")
-else:
-    print("Ошибка")
-
-# реализация через dict
-
-my_dict = {1: "Зима", 2: "Зима", 3: "Весна", 4: "Весна", 5: "Весна", 6: "Лето", 7: "Лето", 8: "Лето", 9: "Осень",
-           10: "Осень", 11: "Осень", 12: "Зима"}
-print(my_dict.get(user_month))
+print(my_func(0, 5.8, 6))
