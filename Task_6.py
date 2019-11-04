@@ -1,6 +1,10 @@
 
 
 def int_func(arg):
+    """
+    возвращает слово с заглавной буквы
+    """
+
     return arg.title()
 
 

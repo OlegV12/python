@@ -1,5 +1,10 @@
 
 def my_func(*args):
+
+    """
+    возвращает сумму введенных чисел
+    """
+
     my_list = []
     args = input("Please input numbers for sum (input 'q' to quit):").split(' ')
     print(f"you input: {args}")

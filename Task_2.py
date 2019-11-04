@@ -2,6 +2,10 @@
 
 def user_data(name, surname, b_year, city, email, ph_number):
 
+    """
+    возвращает введенные данные одной стокой
+    """
+
     print(f"User name: {name}, "
           f"user surname: {surname}, "
           f"user year of birth: {b_year}, "
