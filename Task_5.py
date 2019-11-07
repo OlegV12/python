@@ -1,31 +1,12 @@
 
-def my_func(*args):
-
-    """
-    возвращает сумму введенных чисел
-    """
-
-    my_list = []
-    args = input("Please input numbers for sum (input 'q' to quit):").split(' ')
-    print(f"you input: {args}")
-    if 'q' in args:
-        args.remove('q')
-        for i in args:
-            try:
-                i = float(i)
-                my_list.append(i)
-            except ValueError:
-                continue
-    else:
-        for i in args:
-            try:
-                i = float(i)
-                my_list.append(i)
-            except ValueError:
-                continue
-
-    return round(sum(my_list), 2)
+from functools import reduce
 
 
-print(my_func())
+def m_func(a, b):
+    return a * b
 
+
+new_list = [el for el in range(100, 1001) if el % 2 == 0]
+
+print(new_list)
+print(reduce(m_func, new_list))

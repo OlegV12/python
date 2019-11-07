@@ -1,27 +1,8 @@
-def my_func(x, y):
 
-    """
-    возводит х в степень у
-    """
+my_list = [32, 1453, 123, 12, 432, 124, 12, 12, 34, 43, 43]
 
-    z = x * x
-    i = 2
+res_list = [el for el in my_list if my_list.count(el) < 2]
 
-    if x == 0:
-        print("х не может быть равен 0")
-        return
+print(my_list)
 
-    if abs(y) == 2:
-        return 1 / z
-
-    elif y == 0:
-        return 1
-
-    else:
-        while i != abs(y):
-            z = z * x
-            i += 1
-    return 1 / z
-
-
-print(my_func(7, -0))
+print(res_list)
