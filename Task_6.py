@@ -1,15 +1,20 @@
-from itertools import cycle, count
+my_dict = {}
+hours = 0
 
-for i in count(5):
-    if i > 20:
-        break
-    else:
-        print(i)
+with open("text_6.txt", "r") as r:
+    for line in r:
+        wq = line.replace("(", " ").split()
 
-z = 0
-my_list = [45, 98, 32]
-for k in cycle(my_list):
-    if z > 10:
-        break
-    print(k)
-    z += 1
+        for el in wq:
+            try:
+                hours = hours + int(el)
+
+            except ValueError:
+                continue
+        my_dict.update({wq[0]: hours})
+        hours = 0
+
+print(my_dict)
+
+
+

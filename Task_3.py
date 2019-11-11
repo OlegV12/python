@@ -1,5 +1,14 @@
+employees = 0
+salary = 0
+low_salary = []
+with open("text_3.txt", "r") as f:
 
+    for line in f:
+        m = line.split()
+        salary = salary + float(m[1])
+        employees += 1
+        if float(m[1]) < 20000:
+            low_salary.append(m[0])
 
-my_list = [i for i in range(20, 241) if i % 20 == 0 or i % 21 == 0]
-print(my_list)
-
+print(f"Средняя зарплата на предприятии: {round(salary / employees, 2) }")
+print(F"Сотрудники с запплатой ниже 20000: {', '.join(low_salary)}")
