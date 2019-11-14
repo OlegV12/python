@@ -1,7 +1,10 @@
-with open("text_2.txt", "r") as f:
-    line_count = 0
-    for line in f:
-        line_count += 1
-        print(line, f"Эта строка содержит: {len(line.split())} слов(а).")
+class Road:
 
-print(f"всего сторк в файле: {line_count} ")
+    def __init__(self, _length, _width):
+        self._length = _length
+        self._width = _width
+        print(f"Масса асфальта, необходимого для покрытия дорожного полотна: {_length * _width * 25 * 5 / 1000} тонн")
+
+
+a = Road(400, 30)
+

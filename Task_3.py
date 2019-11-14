@@ -1,14 +1,31 @@
-employees = 0
-salary = 0
-low_salary = []
-with open("text_3.txt", "r") as f:
+class Worker:
 
-    for line in f:
-        m = line.split()
-        salary = salary + float(m[1])
-        employees += 1
-        if float(m[1]) < 20000:
-            low_salary.append(m[0])
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
 
-print(f"Средняя зарплата на предприятии: {round(salary / employees, 2) }")
-print(F"Сотрудники с запплатой ниже 20000: {', '.join(low_salary)}")
+
+class Position(Worker):
+
+    def get_full_name(self):
+        print(f"employee full name: {self.name}  {self.surname}")
+
+    def get_total_income(self):
+        print(f"Total income: {self._income.get('wage') + self._income.get('bonus')}")
+
+
+a = Position("Ivan", "Petrov", "Engineer", 100, 300)
+a.get_total_income()
+a.get_full_name()
+print(a._income)
+print(a.position)
+print(a.name)
+
+b = Position("Sergey", "Ivanov", "Supervisor", 300, 200)
+b.get_total_income()
+b.get_full_name()
+print(b._income)
+print(b.position)
+print(b.name)
