@@ -9,7 +9,8 @@ class Cage:
     def __sub__(self, other):
         if self.cells - other.cells > 0:
             return Cage(self.cells - other.cells)
-        else: return f"Разница не является положительным числом"
+        else:
+            return f"Разница не является положительным числом"
 
     def __mul__(self, other):
         return f"{Cage(self.cells * other.cells)}"

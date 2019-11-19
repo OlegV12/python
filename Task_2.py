@@ -23,7 +23,6 @@ class Costume(Clothes):
 
 
 a = Coat(43)
-
 b = Costume(48)
 
 print(a.calc())

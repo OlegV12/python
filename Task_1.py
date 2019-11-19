@@ -8,13 +8,12 @@ class Matrix:
 
     """функция заполнения матрицы случайными целыми числами от 0 до 100"""
     def fill_numbers(self):
-            numbers = []
-            self.numbers = numbers
-            i = 0
-            while i != Matrix.length * Matrix.height:
-                self.numbers.append(str(randint(0, 100)))
-                i += 1
-
+        numbers = []
+        self.numbers = numbers
+        i = 0
+        while i != Matrix.length * Matrix.height:
+            self.numbers.append(str(randint(0, 100)))
+            i += 1
 
     def __str__(self):
         i = 0
