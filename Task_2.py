@@ -1,11 +1,30 @@
-
-class Road:
-
-    def __init__(self, _length, _width):
-        self._length = _length
-        self._width = _width
-        print(f"Масса асфальта, необходимого для покрытия дорожного полотна: {_length * _width * 25 * 5 / 1000} тонн")
+from abc import ABC, abstractmethod
 
 
-a = Road(400, 30)
+class Clothes(ABC):
+    def __init__(self, size):
+        self.size = size
 
+    @abstractmethod
+    def calc(self):
+        pass
+
+
+class Coat(Clothes):
+    def calc(self):
+        return f"на пошив пальто нужно: {round(self.size / 6.5 + 0.5 , 2)}м. материала"
+
+
+class Costume(Clothes):
+
+    @property
+    def calc(self):
+        return f"на пошив костюма нужно: {round(self.size * 2 + 0.3, 2)}м. материала"
+
+
+a = Coat(43)
+
+b = Costume(48)
+
+print(a.calc())
+print(b.calc)
