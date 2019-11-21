@@ -1,42 +1,36 @@
-from random import randint
+class Date:
+
+    def __init__(self, date):
+        self.date = date
+
+    @classmethod
+    def my_method(cls, date):
+        cls.date = date
+
+        day, month, year = cls.date.split("-")
+        return int(day), int(month), int(year)
+
+    @staticmethod
+    def check_method(date):
+        day, month, year = date.split("-")
+        try:
+            if 1 > int(day) or int(day) > 31:
+                print("day error")
+            if 1 > int(month) or int(month) > 12:
+                print("month error")
+            if int(year) < 0:
+                print("year error")
+        except ValueError:
+            print("value error")
 
 
-class Matrix:
-    length = 3        # длина строки матрицы
-    height = 3        # количество строк матрицы
-    numbers = []
+z = Date("11-11-11")
+print(z.my_method("11-11-11"))
 
-    """функция заполнения матрицы случайными целыми числами от 0 до 100"""
-    def fill_numbers(self):
-        numbers = []
-        self.numbers = numbers
-        i = 0
-        while i != Matrix.length * Matrix.height:
-            self.numbers.append(str(randint(0, 100)))
-            i += 1
+print(Date.my_method("22-22-22"))
 
-    def __str__(self):
-        i = 0
-        while i <= Matrix.length * Matrix.height:
-            print(f"{' '.join(self.numbers[i:i+Matrix.length])}")
-            i += Matrix.length
-        return "---"
+Date.check_method("q-0-00")
 
-    def __add__(self, other):
-        result_list = []
-        for el_1, el_2 in zip(self.numbers, other.numbers):
-            result_list.append(str(int(el_1) + int(el_2)))
-        a = Matrix()
-        a.numbers = result_list
-        return a
+z.check_method("45-0-00")
 
 
-q = Matrix()
-q.fill_numbers()
-print(q)
-
-b = Matrix()
-b.fill_numbers()
-print(b)
-
-print(q + b)

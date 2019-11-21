@@ -1,29 +1,18 @@
+class ComplexDigit:
+    def __init__(self, re, im):
+        self.re = re
+        self.im = im
 
-class Stationery:
-    def __init__(self, title):
-        self.title = title
+    def __add__(self, other):
+        return self.re + other.re, self.im + other.im
 
-    def draw(self):
-        print("Запуск отрисовки")
-
-
-class Pen(Stationery):
-    def draw(self):
-        print(f"Отрисовка ручки: {self.title}")
+    def __mul__(self, other):
+        return (self.im + self.re) * (other.im + other.re)
 
 
-class Pencil(Stationery):
-    def draw(self):
-        print(f"Отрисовка карандаша: {self.title}")
+a = ComplexDigit(2, 4j)
 
+b = ComplexDigit(3, 5j)
 
-class Handle(Stationery):
-    def draw(self):
-        print(f"Отрисовка маркера: {self.title}")
-
-
-a = Pen("Красная ручка")
-b = Pencil("Синий карандаш")
-
-a.draw()
-b.draw()
+print(a + b)
+print(a * b)

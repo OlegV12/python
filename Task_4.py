@@ -1,62 +1,59 @@
+class Storage:
+    def __init__(self):
+        self.my_dict = {"total USD": 0}
 
-class Car:
-    is_police = False
-
-    def __init__(self, speed, colour, name):
-        self.speed = speed
-        self.colour = colour
-        self.name = name
-
-    def go(self):
-        print(f"Car: {self.name} is go")
-
-    def stop(self):
-        print(f"Car: {self.name} stopped")
-
-    def turn(self, direction):
-        print(f"Car: {self.name} turned {direction}")
-
-    def show_speed(self):
-        print(f"Current speed: {self.speed}")
-
-
-class TownCar(Car):
-    def show_speed(self):
-        if self.speed <= 60:
-            print(f"Current speed: {self.speed}")
+    def storage_in(self, obj, number):
+        if obj.model in self.my_dict:
+            self.my_dict.update({obj.model: self.my_dict[obj.model] + number})
+            self.my_dict.update({"total USD": self.my_dict["total USD"] + obj.price * number})
         else:
-            print("Speed limit exceeded")
+            self.my_dict.update({obj.model: number, "total USD": self.my_dict["total USD"] + obj.price * number})
+
+    def storage_out(self, obj, number):
+        if obj.model in self.my_dict:
+            if self.my_dict[obj.model] - number < 0:
+                print(f"на складе нет столько {obj.name}")
+            self.my_dict.update({obj.model: self.my_dict[obj.model] - number})
+            self.my_dict.update({"total USD": self.my_dict["total USD"] - obj.price * number})
 
 
-class SportCar(Car):
-    pass
+class OfficeEquipment:
+    def __init__(self, model, price):
+        self.model = model
+        self.price = price
 
 
-class WorkCar(Car):
-    def show_speed(self):
-        if self.speed <= 40:
-            print(f"Current speed: {self.speed}")
-        else:
-            print("Speed limit exceeded")
+class Printer(OfficeEquipment):
+    def __init__(self, model, price):
+        super().__init__(model, price)
 
 
-class PoliceCar(Car):
-    is_police = True
+class Scanner(OfficeEquipment):
+    def __init__(self, model, price):
+        super().__init__(model, price)
 
 
-a = TownCar(100, "black", "first car")
-b = SportCar(200, "red", "second car")
-c = WorkCar(30, "green", "third car")
-d = PoliceCar(80, "blue", "police")
+class Xerox(OfficeEquipment):
+    def __init__(self, model, price):
+        super().__init__(model, price)
 
-a.go()
-b.stop()
-c.turn("left")
-d.go()
 
-a.show_speed()
-print(b.name)
-c.show_speed()
-print(d.is_police)
-print(a.is_police)
+
+s = Scanner("S3", 100)
+x = Xerox("x1", 300)
+p = Printer("P1", 200)
+r = Scanner("r2", 150)
+store = Storage()
+
+store.storage_in(r, 10)
+store.storage_in(x, 3)
+store.storage_in(s, 1)
+store.storage_in(p, 5)
+print(store.my_dict)
+store.storage_in(r, 5)
+store.storage_out(p, 2)
+print(store.my_dict)
+store.storage_out(p, 1)
+print(store.my_dict)
+
 

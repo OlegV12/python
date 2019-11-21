@@ -1,29 +1,26 @@
-from abc import ABC, abstractmethod
+
+class OwnError(Exception):
+    def __init__(self, txt):
+        self.txt = txt
 
 
-class Clothes(ABC):
-    def __init__(self, size):
-        self.size = size
+inp_data_1 = input("Введите делимое: ")
+inp_data_2 = input("Введите делитель: ")
 
-    @abstractmethod
-    def calc(self):
-        pass
+try:
+    inp_data_1 = int(inp_data_1)
+    inp_data_2 = int(inp_data_2)
 
+    if inp_data_2 == 0:
+        raise OwnError("на нуль делить нельзя!")
+except OwnError as err:
+    print(err)
 
-class Coat(Clothes):
-    def calc(self):
-        return f"на пошив пальто нужно: {round(self.size / 6.5 + 0.5 , 2)}м. материала"
-
-
-class Costume(Clothes):
-
-    @property
-    def calc(self):
-        return f"на пошив костюма нужно: {round(self.size * 2 + 0.3, 2)}м. материала"
+except ValueError:
+    print("вы ввели не число")
+else:
+    print(round(int(inp_data_1) / int(inp_data_2), 2))
 
 
-a = Coat(43)
-b = Costume(48)
 
-print(a.calc())
-print(b.calc)
+
