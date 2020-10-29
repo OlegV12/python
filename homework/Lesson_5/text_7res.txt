@@ -1,0 +1,1 @@
+[{"MTS": 2000, "Google": 11000, "Gazprom": -150000, "Rosneft": -40000, "Zavod": 48000}, {"average_profit": 20333.33}]
